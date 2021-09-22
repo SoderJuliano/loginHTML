@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Inova Login</title>
 </head>
 
@@ -19,10 +20,59 @@
 <br>
 
 <div class="login">
-  <input type="text" placeholder="username" name="user"><br>
-  <input type="password" placeholder="password" name="password"><br>
-  <input type="button" value="Login">
+  <input id="name" type="text" placeholder="username" name="user"><br>
+  <input id="password" type="password" placeholder="password" name="password"><br>
+  <input type="button" onclick="login()" value="Login">
 </div>
 
 
 </html>
+
+<script>
+
+  function login(){
+    let data =  {
+            "nome": $("#name").val(),
+            "senha": $("#password").val()
+        }
+    $.ajax({
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        crossDomain: true,
+        dataType: "json",
+        crossDomain: true,
+        data: JSON.stringify(data),
+        success: function(data){
+            console.log("Login bem sucedido");
+            window.location.replace("/nextpage.html");
+        },
+        error: function(){
+          console.log("Erro, login não realizado. "+$("#password").val());
+        },
+        processData: false,
+        url: 'http://localhost:8080/usuarios/login'
+    });
+
+  }
+  /*
+
+  $.ajax({
+             type: "POST",
+             url: "localhost:8080/usuarios/login",
+             data: JSON.stringify(data),
+             contentType: "application/json; charset=utf-8",
+             crossDomain: true,
+             dataType: "json",
+             success: function (data, status, jqXHR) {
+
+                 alert(success);
+             },
+
+             error: function (jqXHR, status) {
+                 // error handler
+                 console.log(jqXHR);
+                 alert('fail' + status.code);
+             }
+          });
+    }*/
+</script>

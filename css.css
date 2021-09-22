@@ -25,7 +25,6 @@ body{
   width: auto;
   height: auto;
   background-image: url(images.jpeg);
-  -webkit-filter: grayscale(50%);
   background-size: cover;
   background-position: center;
   z-index: 0;
