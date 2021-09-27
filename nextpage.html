@@ -5,58 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/jquery-cookie-master/src/jquery.cookie.js"></script>
+    <script defer src="/img/fontawesome-free-5.15.4-web/js/brands.js"></script>
+    <script defer src="/img/fontawesome-free-5.15.4-web/js/solid.js"></script>
+    <script defer src="/img/fontawesome-free-5.15.4-web/js/fontawesome.js"></script>
+    <script defer src="/img/fontawesome-free-5.15.4-web/js/regular.js"></script>
+    <script defer src="/img/fontawesome-free-5.15.4-web/js/v4-shims.js"></script>
+    <script src="/funcoes_nextpage.js"></script>
     <title>Inova Login</title>
-    <title>Document</title>
+    <link rel="stylesheet" href="nextpage.css">
+    <title>Sistema Inova</title>
 </head>
-<body onload="redirect()">
-    <button onclick="get()">show all</button>
+<body class="body" onload="redirect()">
+  <div class="usuariologado">
+    <i id="usericon" class="far fa-user fa-3x"></i>
+    <p>Usuario: <span id="username"></span></p>
+  </div>
+  
+    <button onclick="listallusers()">usuarios</button>
     <button onclick="voltar()" >voltar</button>
 </body>
 </html>
-<script>
-function voltar(){
-  window.location.replace("/index.html");
-}
-function get(){
-  jQuery.ajax({
-url: 'localhost:8080/usuarios',
-type: 'get',
-dataType: 'jsonp',
-success:function(data)
-{
-//alert('xx');
-alert(data);
-return(data);
-//document.write(data);
-}
-});
-}
-   
-    function listAll(){
-   
-      let data =  {
-            "nome": "juliano2",
-            "senha": "123"
-        }
-    $.ajax({
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        crossDomain: true,
-        dataType: "json",
-        crossDomain: true,
-        data: JSON.stringify(data),
-          success: function(data){
-          console.log(data);
-            console.log("Login bem sucedido");
-            //$(".login").css("display", "none");
-            //$("#nextPage").css({"display": "block", "width": "600px", "heigth": "400px", "z-index" : "5"});
-            //window.location.replace("/nextpage.html");
-        },
-        error: function(){
-          console.log("erro");
-        },
-        processData: false,
-        url: 'http://localhost:8080/usuarios/cadastrar'
-    });
- }
-</script>

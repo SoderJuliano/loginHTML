@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/jquery-cookie-master/src/jquery.cookie.js"></script>
     <title>Inova Login</title>
 </head>
 
@@ -32,25 +33,33 @@
 </html>
 
 <script>
-
   function login(){
     let data =  {
             "nome": $("#name").val(),
             "senha": $("#password").val()
         }
     $.ajax({
+        xhrFields: {
+          withCredentials: false
+        },
         type: "POST",
         contentType: "application/json; charset=utf-8",
         crossDomain: true,
         dataType: "json",
-        crossDomain: true,
         data: JSON.stringify(data),
           success: function(data){
           console.log(data);
             console.log("Login bem sucedido");
             //$(".login").css("display", "none");
             //$("#nextPage").css({"display": "block", "width": "600px", "heigth": "400px", "z-index" : "5"});
-           window.location.replace("/nextpage.html");
+            
+            let chave = getnewDate();
+            const dadossessao = chave+data["senha"]+"-"+data["id"];
+            let sessao = "chave:"+dadossessao+"-id_usuario:"+data["id"]
+            sessionStorage.setItem("InovaInd", sessao);
+            $.cookie('InovaInd', dadossessao, { expires: 7, path: '/' });
+            console.log($.cookie('InovaInd'));
+            window.location.replace("/nextpage.html");
         },
         error: function(){
           console.log("Erro, login não realizado. "+$("#password").val());
@@ -60,5 +69,16 @@
     });
 
   }
-  
+  function getnewDate(){
+    var now = new Date();
+    const dia = now.getUTCDate();
+    let month = now.getMonth()+1;
+    if(month<10){month = "0"+month}
+    const year = now.getFullYear();
+    let fulldate;
+    console.log(fulldate);
+    return  fulldate = dia+""+month+""+year
+  }
+
+  //https://cors-anywhere.herokuapp.com
 </script>

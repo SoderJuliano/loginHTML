@@ -24,12 +24,11 @@ body{
   bottom: -40px;
   width: auto;
   height: auto;
-  background-image: url(images.jpeg);
+  background-image: url(img/images.jpeg);
   background-size: cover;
   background-position: center;
   z-index: 0;
 }
-
 
 
 #formDiv{

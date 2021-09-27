@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "jaaulde-cookies": "^3.0.6"
+  }
+}
