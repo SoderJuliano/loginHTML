@@ -1,6 +1,35 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Raleway:wght@400;500&display=swap');
 
+@media screen and (min-width:1001px) {
+  #formDiv{
+    height: 200px;
+    width: 700px;
+  }
+  .login{
+    top: calc(49% - 75px);
+    left: calc(50% - 50px);
+  }
+  .header{
+    top: calc(48% - 35px);
+    left: calc(47% - 255px);
+  }
+}
+@media screen and (max-width:1000px) {
+  #formDiv{
+    height: 200px;
+    width: 80%;
+  }
+  .login{
+    top: calc(49% - 75px);
+    left: calc(43% - 150px);
+  }
+  .header{
+    top: calc(28% - 35px);
+    left: calc(47% - 55px);
+  }
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -32,8 +61,6 @@ body{
 
 
 #formDiv{
-    height: 200px;
-    width: 700px;
     border-radius: 5px;
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
@@ -65,8 +92,6 @@ body{
 
 .header{
   position: absolute;
-  top: calc(48% - 35px);
-  left: calc(47% - 255px);
   z-index: 2;
 }
 
@@ -84,8 +109,6 @@ body{
 
 .login{
   position: absolute;
-  top: calc(49% - 75px);
-  left: calc(50% - 50px);
   height: 150px;
   width: 350px;
   padding: 10px;
