@@ -11,18 +11,31 @@
     <script defer src="/img/fontawesome-free-5.15.4-web/js/fontawesome.js"></script>
     <script defer src="/img/fontawesome-free-5.15.4-web/js/regular.js"></script>
     <script defer src="/img/fontawesome-free-5.15.4-web/js/v4-shims.js"></script>
-    <script src="/funcoes_nextpage.js"></script>
+    <script src="/js/funcoes_de_usuario.js"></script>
     <title>Inova Login</title>
-    <link rel="stylesheet" href="nextpage.css">
+    <link rel="stylesheet" href="/css/nextpage.css">
     <title>Sistema Inova</title>
 </head>
 <body class="body" onload="redirect()">
   <div class="usuariologado">
-    <i id="usericon" class="far fa-user fa-3x"></i>
-    <p>Usuario: <span id="username"></span></p>
+    <div>
+      <i id="usericon" class="far fa-user fa-3x"></i>
+      <i id="usericon" class="fas fa-briefcase fa-3x"></i>    
+    </div>
+    <div class="usuariologadoinside">
+      <p>Usuario -  <span id="username"></span></p>
+      <p>Cargo -  <span id="cargo"></span></p>
+    </div>
+    <span class="niveldeacesso">Nível</span>
   </div>
   
-    <button onclick="listallusers()">usuarios</button>
-    <button onclick="voltar()" >voltar</button>
+  <div onclick="ajax('listusers')" class="bnt-type">
+    <i id="usericon" class="fas fa-search fa-2x"></i>
+    <span>Search all users</span>
+  </div>
+  <div onclick="logout()" class="bnt-type">
+    <i id="usericon" class="fas fa-sign-out-alt fa-2x"></i>
+    <p>voltar</p>
+  </div>
 </body>
 </html>

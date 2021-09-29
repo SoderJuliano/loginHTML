@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Raleway:wght@400;500&display=swap");
+.body {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background-image: url(/img/images.jpeg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.usuariologado {
+  text-align: left;
+  color: #fff;
+  display: flex;
+  margin: 10%;
+  height: 150px;
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(228, 228, 228, 0.08);
+  border-top: 2px solid rgba(225, 225, 225, 0.3);
+  border-left: 2px solid rgba(225, 225, 225, 0.1);
+  border-right: 1px solid rgba(225, 225, 225, 0.2);
+}
+.usuariologado p{
+  color: black;
+  background-color: rgba(255, 255, 255, 0.884);
+  border-radius: 25px;
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
+}
+#usericon {
+  padding-top: 15px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+P {
+  float: left;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200;
+}/*# sourceMappingURL=nextpage.css.map */
+
+.niveldeacesso{
+  padding-top: 10px;
+  font-family: 'Fredoka One';
+}
+.usuariologadoinside{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+.bignumber{
+  font-size: 35px;
+  padding: 10px;
+}
+.bnt-type{
+  color: #fff;
+  display: flex;
+  margin-top: 10%;
+  margin-left: 10px;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(228, 228, 228, 0.08);
+  border-top: 2px solid rgba(225, 225, 225, 0.3);
+  border-left: 2px solid rgba(225, 225, 225, 0.1);
+  border-right: 1px solid rgba(225, 225, 225, 0.2);
+  padding: 10px;
+  overflow: hidden;
+}
+.bnt-type span{
+  margin-top: 10%;
+}
+.bnt-type:active{
+  background-color: rgb(0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+body{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="/css/css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/jquery-cookie-master/src/jquery.cookie.js"></script>
     <title>Inova Login</title>
@@ -23,62 +23,7 @@
 <div class="login">
   <input id="name" type="text" placeholder="username" name="user"><br>
   <input id="password" type="password" placeholder="password" name="password"><br>
-  <input type="button" onclick="login()" value="Login">
-</div>
-
-<div id="nextPage"> pos login
-
-  <button onclick="listAll()">click me</button>
+  <input type="button" onclick="ajax('login')" value="Login">
 </div>
 </html>
-
-<script>
-  function login(){
-    let data =  {
-            "nome": $("#name").val(),
-            "senha": $("#password").val()
-        }
-    $.ajax({
-        xhrFields: {
-          withCredentials: false
-        },
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        crossDomain: true,
-        dataType: "json",
-        data: JSON.stringify(data),
-          success: function(data){
-          console.log(data);
-            console.log("Login bem sucedido");
-            //$(".login").css("display", "none");
-            //$("#nextPage").css({"display": "block", "width": "600px", "heigth": "400px", "z-index" : "5"});
-            
-            let chave = getnewDate();
-            const dadossessao = chave+data["senha"]+"-"+data["id"];
-            let sessao = "chave:"+dadossessao+"-id_usuario:"+data["id"]
-            sessionStorage.setItem("InovaInd", sessao);
-            $.cookie('InovaInd', dadossessao, { expires: 7, path: '/' });
-            console.log($.cookie('InovaInd'));
-            window.location.replace("/nextpage.html");
-        },
-        error: function(){
-          console.log("Erro, login não realizado. "+$("#password").val());
-        },
-        processData: false,
-        url: 'http://localhost:8080/usuarios/login'
-    });
-
-  }
-  function getnewDate(){
-    var now = new Date();
-    const dia = now.getUTCDate();
-    let month = now.getMonth()+1;
-    if(month<10){month = "0"+month}
-    const year = now.getFullYear();
-    let fulldate;
-    console.log(fulldate);
-    return  fulldate = dia+""+month+""+year
-  }
-
-  //https://cors-anywhere.herokuapp.com
-</script>
+<script src="/js/funcoes_de_usuario.js"></script>
